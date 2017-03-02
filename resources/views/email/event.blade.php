@@ -1,3 +1,3 @@
 hi {{ $name }}
 
-Test event email
+Test queue email

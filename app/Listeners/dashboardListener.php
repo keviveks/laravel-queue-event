@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 // use Illuminate\Mail\Mailable;
 // use Illuminate\Support\Facades\Mail;
 use Mail;
+use App\Mail\userEmail;
 
 class dashboardListener 
 {
@@ -34,10 +35,11 @@ class dashboardListener
             'name' => $event->user->name
         );
         $message = "dashboard logged in";
-        // Mail::to($event->user->email)->send($message);
-        Mail::send('email.event', $data, function($message) use ($event) {
-            $message->to($event->user->email);
-            $message->subject('Event mail Testing');
-        });
+        Mail::to($event->user->email)
+            ->later(5, new userEmail($data));
+        // Mail::later(5, 'email.event', $data, function($message) use ($event) {
+        //     $message->to($event->user->email);
+        //     $message->subject('Event mail Testing');
+        // });
     }
 }
