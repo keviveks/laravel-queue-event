@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Event;
-use App\Events\dashboardNotification;
+// use App\Events\dashboardNotification;
+use App\Events\userQueueEvent;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Event::fire(new dashboardNotification(Auth::user()));
+        Event::fire(new userQueueEvent(Auth::user()));
         return view('home');
     }
 }

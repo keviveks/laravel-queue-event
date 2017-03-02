@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\dashboardNotification' => [
             'App\Listeners\dashboardListener',
         ],
+        'App\Events\userQueueEvent' => [
+            'App\Listeners\userQueueListener',
+        ],
     ];
     
     protected $subscribe = [
