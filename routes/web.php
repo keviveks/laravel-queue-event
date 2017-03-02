@@ -11,7 +11,10 @@
 |
 */
 
+// use App\Events\dashboardNotification;
+
 Route::get('/', function () {
+    // event(new dashboardNotification(Auth::user()));
     return view('welcome');
 });
 

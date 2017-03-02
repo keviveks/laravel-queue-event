@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         // 'Illuminate\Auth\Events\Login' => [
         //     'App\Listeners\userLastLogin',
         // ],
+        'App\Events\dashboardNotification' => [
+            'App\Listeners\dashboardListener',
+        ],
     ];
     
     protected $subscribe = [
